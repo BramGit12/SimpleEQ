@@ -52,6 +52,12 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    static juce::AudioProcessorValueTreeState::ParameterLayout
+        createParameterLayout();
+
+    // apvts must be initialized in the constructor (uses *this), so declare it here without in-class initializer
+    juce::AudioProcessorValueTreeState apvts;
 
 private:
     //==============================================================================
